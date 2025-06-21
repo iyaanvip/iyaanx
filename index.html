@@ -1,709 +1,502 @@
+
 <!DOCTYPE html>
- <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta content="width=device-width,initial-scale=1" name="viewport">
-    <title>HOSTING WANZOFC</title>
-    <meta content="wanzofc menyediakan kebutuhan hosting" name="description">
-    <meta content="apikey, bot whatsapp, rest api, vps, panel, wanzofc" name="keywords">
-    <link href="https://envs.sh/A49.jpg" rel="icon">
-    <link href="https://envs.sh/A49.jpg" rel="apple-touch-icon">
-    <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,300i,400,400i,600,600i,700,700i|Montserrat:300,300i,400,400i,500,500i,600,600i,700,700i|Poppins:300,300i,400,400i,500,500i,600,600i,700,700i" rel="stylesheet">
-    <link href="https://api.zeeoneofc.my.id/aos/aos.css" rel="stylesheet">
-    <link href="https://api.zeeoneofc.my.id/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://api.zeeoneofc.my.id/boxicons/css/boxicons.min.css" rel="stylesheet">
-    <link href="https://api.zeeoneofc.my.id/glightbox/css/glightbox.min.css" rel="stylesheet">
-    <link href="https://api.zeeoneofc.my.id/remixicon/remixicon.css" rel="stylesheet">
-    <link href="https://api.zeeoneofc.my.id/swiper/swiper-bundle.min.css" rel="stylesheet">
-    <link href="https://api.zeeoneofc.my.id/css/style.min.css" rel="stylesheet">
-    <link rel="shortcut icon" href="https://envs.sh/A49.jpg">
-  </head>
-  <body>
-    <header id="header" class="fixed-top d-flex align-items-center header-transparent">
-      <div class="container d-flex align-items-center justify-content-between">
-        <div class="logo">
-          <h1>
-            <a href="#">
-              <span>HOSTING WANZOFC</span>
-            </a>
-          </h1>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kiryzz Store</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f0f4ff;
+            background-image: url('https://i.pinimg.com/originals/0f/3b/79/0f3b79daf32a6e5a60845e0c3a5a8a0a.jpg');
+            background-size: cover;
+            background-attachment: fixed;
+            background-position: center;
+            color: #333;
+            overflow-x: hidden;
+        }
+        
+        /* Loading Animation */
+        .loading-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: rgba(255, 255, 255, 0.9);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            z-index: 9999;
+            transition: opacity 0.5s ease-out;
+        }
+        
+        .loader {
+            width: 48px;
+            height: 48px;
+            border: 5px solid #4f46e5;
+            border-bottom-color: transparent;
+            border-radius: 50%;
+            display: inline-block;
+            box-sizing: border-box;
+            animation: rotation 1s linear infinite;
+        }
+        
+        @keyframes rotation {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        
+        /* Snow Overlay */
+        .snow {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: 100;
+        }
+        
+        /* Product Card */
+        .product-card {
+            transition: all 0.3s ease;
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            overflow: hidden;
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+        }
+        
+        .product-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+        }
+        
+        /* Payment Method */
+        .payment-method {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 10px;
+            padding: 15px;
+            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* WhatsApp Button */
+        .whatsapp-btn {
+            background-color: #25D366;
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .whatsapp-btn:hover {
+            background-color: #128C7E;
+            transform: scale(1.05);
+        }
+        
+        /* Copy Button */
+        .copy-btn {
+            transition: all 0.2s ease;
+        }
+        
+        .copy-btn:hover {
+            background-color: #4f46e5;
+            color: white;
+        }
+        
+        /* Anime Theme Elements */
+        .anime-theme {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+        
+        .anime-title {
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+            font-weight: 700;
+        }
+        
+        /* Floating Elements */
+        .floating {
+            animation: floating 3s ease-in-out infinite;
+        }
+        
+        @keyframes floating {
+            0% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+            100% { transform: translateY(0px); }
+        }
+    </style>
+</head>
+<body>
+    <!-- Loading Screen -->
+    <div class="loading-container" id="loadingScreen">
+        <div class="loader"></div>
+        <p class="mt-4 text-xl font-semibold text-indigo-600">Loading Kiryzz Store...</p>
+    </div>
+    
+    <!-- Snow Overlay -->
+    <div class="snow" id="snow"></div>
+    
+    <!-- Header -->
+    <header class="anime-theme py-6 shadow-lg">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <div class="flex items-center space-x-2">
+                <i class="fas fa-dragon text-3xl text-yellow-300 floating"></i>
+                <h1 class="anime-title text-2xl md:text-3xl">Kiryzz Store</h1>
+            </div>
+            <div class="flex items-center space-x-4">
+                <span class="hidden md:block text-yellow-200"><i class="fas fa-star mr-1"></i> Official Kiryzz Merchandise</span>
+            </div>
         </div>
-      </div>
     </header>
-    <section id="hero">
-      <div class="container">
-        <div class="row justify-content-between">
-          <div class="col-lg-7 pt-5 pt-lg-0 order-2 order-lg-1 d-flex align-items-center">
-            <div data-aos="zoom-out">
-              <h1>Welcome To <span>WANZOFC || Website</span></h1>
-              <h2>WANZ - SHOP || Website Ready Kebutuhan Hosting, Jasa Install Panel, Jasa Install Thema, Sc Bot,Dan lain lan</h2>
-              <div class="text-center text-lg-start">
-                <a href="#pricing" class="btn-get-started">SELANJUTNYA</a>
-              </div>
+    
+    <!-- Main Content -->
+    <main class="container mx-auto px-4 py-8">
+        <!-- Featured Products -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-indigo-800 flex items-center">
+                <i class="fas fa-fire mr-3 text-red-500"></i> Featured Products
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <!-- Product 1 -->
+                <div class="product-card">
+                    <div class="relative overflow-hidden">
+                        <img src="https://img1.pixhost.to/images/6574/612320873_imgtmp.jpg" alt="Script Create Script" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">LONG</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2"Script Create Script</h3>
+                        <p class="text-gray-600 mb-4">Script Create Script</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-indigo-600">Rp 40.000</span>
+                            <button class="whatsapp-btn px-4 py-2 rounded-full font-medium flex items-center" onclick="orderProduct('Script Create Script', 40000)">
+                                <i class="fab fa-whatsapp mr-2"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+           <!-- Product 2 -->
+                <div class="product-card">
+                    <div class="relative overflow-hidden">
+                        <img src="https://img1.pixhost.to/images/6574/612320873_imgtmp.jpg" alt="Script Create Script Free Update" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-blue-500 text-white px-2 py-1 rounded-full text-xs font-bold">LONG</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">Script Create Script Free Update</h3>
+                        <p class="text-gray-600 mb-4">Script Create Script Free Update</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-indigo-600">Rp 50.000</span>
+                            <button class="whatsapp-btn px-4 py-2 rounded-full font-medium flex items-center" onclick="orderProduct('Script Create Script Free update', 50000)">
+                                <i class="fab fa-whatsapp mr-2"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+              <!-- Product 3 -->
+                <div class="product-card">
+                    <div class="relative overflow-hidden">
+                        <img src="https://img1.pixhost.to/images/6574/612320873_imgtmp.jpg" alt="Script Create Script Free update + Konsultasi" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-green-500 text-white px-2 py-1 rounded-full text-xs font-bold">LONG</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">Script Create Script Free update + Konsultasi</h3>
+                        <p class="text-gray-600 mb-4">Script Create Script Free Update + Konsultasi</p>
+                     <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-indigo-600">Rp 60.000</span>
+                            <button class="whatsapp-btn px-4 py-2 rounded-full font-medium flex items-center" onclick="orderProduct('Script Create Script Free update + Konsultasi', 60000)">
+                                <i class="fab fa-whatsapp mr-2"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+             <!-- Product 4 -->
+                <div class="product-card">
+                    <div class="relative overflow-hidden">
+                        <img src="https://img1.pixhost.to/images/6574/612320873_imgtmp.jpg" alt="Script Create Script Free update permanen" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">LONG</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">Script Create Script Free update permanen</h3>
+                        <p class="text-gray-600 mb-4">Script Create Script Free update permanen</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-indigo-600">Rp 80.000</span>
+                            <button class="whatsapp-btn px-4 py-2 rounded-full font-medium flex items-center" onclick="orderProduct('Script Create Script Free Update Permanen', 80000)">
+                                <i class="fab fa-whatsapp mr-2"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+              <!-- Product 5 -->
+                <div class="product-card">
+                    <div class="relative overflow-hidden">
+                        <img src="https://img1.pixhost.to/images/6574/612317574_imgtmp.jpg" alt="Website Nokos" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">HOT</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">Website Nokos</h3>
+                        <p class="text-gray-600 mb-4">Bisa REQ Nama Web , Nomor Dana , Nomor Onwer , Send Qris</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-indigo-600">Rp 8.000</span>
+                            <button class="whatsapp-btn px-4 py-2 rounded-full font-medium flex items-center" onclick="orderProduct('Website Nokos', 8000)">
+                                <i class="fab fa-whatsapp mr-2"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+                <!-- Product 6 -->
+                <div class="product-card">
+                    <div class="relative overflow-hidden">
+                        <img src="https://img1.pixhost.to/images/6574/612316874_imgtmp.jpg" alt="Website Panel Ptheoradity" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">HOT</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">Website Panel Ptheoradity</h3>
+                        <p class="text-gray-600 mb-4">Bisa REQ Nama Web , Nomor Dana , Nomor Onwer , Send Qris</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-indigo-600">Rp 9.000</span>
+                            <button class="whatsapp-btn px-4 py-2 rounded-full font-medium flex items-center" onclick="orderProduct('Website Panel Ptheoradity', 9000)">
+                                <i class="fab fa-whatsapp mr-2"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                  </div>
+             <!-- Product 7 -->
+                <div class="product-card">
+                    <div class="relative overflow-hidden">
+                        <img src="https://img1.pixhost.to/images/6586/612523965_imgtmp.jpg" alt="Website Murbug" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">HOT</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">Website Murbug</h3>
+                        <p class="text-gray-600 mb-4">Bisa REQ Nama Web , Nomor Dana , Nomor Onwer , Send Qris</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-indigo-600">Rp 8.000</span>
+                            <button class="whatsapp-btn px-4 py-2 rounded-full font-medium flex items-center" onclick="orderProduct('Website Murbug', 8000)">
+                                <i class="fab fa-whatsapp mr-2"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+               <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="relative overflow-hidden">
+                        <img src="https://img1.pixhost.to/images/6572/612296692_imgtmp.jpg" alt="Website Jashare" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">HOT</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">Website Jashare</h3>
+                        <p class="text-gray-600 mb-4">Bisa REQ Nama Web , Nomor Dana , Nomor Onwer , Send Qris</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-indigo-600">Rp 8.000-9.000</span>
+                            <button class="whatsapp-btn px-4 py-2 rounded-full font-medium flex items-center" onclick="orderProduct('Website Jashare', 8000)">
+                                <i class="fab fa-whatsapp mr-2"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 9 -->
+                <div class="product-card">
+                    <div class="relative overflow-hidden">
+                        <img src="https://img1.pixhost.to/images/6571/612293813_imgtmp.jpg" alt="Website Topup Free Fire" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">HOT</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">Website Topup Free Fire</h3>
+                        <p class="text-gray-600 mb-4">Bisa REQ Nama Web , Nomor Dana , Nomor Onwer , Send Qris</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-indigo-600">Rp 8.000-9.000</span>
+                            <button class="whatsapp-btn px-4 py-2 rounded-full font-medium flex items-center" onclick="orderProduct('Website Jashare', 8000)">
+                                <i class="fab fa-whatsapp mr-2"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                <!-- Product 8 -->
+                <div class="product-card">
+                    <div class="relative overflow-hidden">
+                        <img src="https://img1.pixhost.to/images/6574/612313336_imgtmp.jpg" alt="Website VPS" class="w-full h-64 object-cover">
+                        <div class="absolute top-2 right-2 bg-red-500 text-white px-2 py-1 rounded-full text-xs font-bold">HOT</div>
+                    </div>
+                    <div class="p-5">
+                        <h3 class="text-xl font-bold mb-2">Website VPS</h3>
+                        <p class="text-gray-600 mb-4">Bisa REQ Nama Web , Nomor Dana , Nomor Onwer , Send Qris</p>
+                        <div class="flex justify-between items-center">
+                            <span class="text-2xl font-bold text-indigo-600">Rp 8.000-9.000</span>
+                            <button class="whatsapp-btn px-4 py-2 rounded-full font-medium flex items-center" onclick="orderProduct('Website VPS', 8000)">
+                                <i class="fab fa-whatsapp mr-2"></i> Order Now
+                            </button>
+                        </div>
+                    </div>
+                </div>
+             </div>
+        </section>
+        
+        <!-- Payment Methods -->
+        <section class="mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-indigo-800 flex items-center">
+                <i class="fas fa-money-bill-wave mr-3 text-green-500"></i> Payment Methods
+            </h2>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <!-- Dana -->
+                <div class="payment-method">
+                    <div class="flex items-center mb-4">
+                        <img src="https://img1.pixhost.to/images/6563/612174692_imgtmp.jpg" alt="DANA" class="h-10 mr-3">
+                        <h3 class="text-xl font-bold">DANA</h3>
+                    </div>
+                    <div class="bg-gray-100 p-4 rounded-lg mb-3">
+                        <p class="font-semibold mb-1">Nomor DANA:</p>
+                        <div class="flex justify-between items-center">
+                            <p class="text-lg font-mono">0882015857798</p>
+                            <button class="copy-btn bg-gray-200 px-3 py-1 rounded text-sm" onclick="copyToClipboard('6283170618607')">
+                                <i class="fas fa-copy mr-1"></i> Copy
+                            </button>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-600">Transfer ke nomor DANA di atas dan konfirmasi via WhatsApp</p>
+                </div>
+                
+                <!-- QRIS -->
+                <div class="payment-method">
+                    <div class="flex items-center mb-4">
+                        <img src="https://img1.pixhost.to/images/6562/612167588_imgtmp.jpgng" alt="QRIS" class="h-10 mr-3">
+                        <h3 class="text-xl font-bold">QRIS</h3>
+                    </div>
+                    <div class="flex flex-col md:flex-row items-center gap-4">
+                        <img src="https://img1.pixhost.to/images/6586/612526208_imgtmp.jpg" alt="QR Code" class="w-32 h-32 border border-gray-300 p-2 rounded">
+                        <div>
+                            <p class="font-semibold mb-2">Scan QRIS untuk pembayaran</p>
+                            <button class="copy-btn bg-indigo-100 text-indigo-700 px-3 py-2 rounded font-medium" onclick="window.open('https://img1.pixhost.to/images/6586/612526208_imgtmp.jpg', '_blank')">
+                                <i class="fas fa-external-link-alt mr-2"></i> Buka Link QRIS
+                            </button>
+                        </div>
+                    </div>
+                </div>
             </div>
-          </div>
-          <div class="col-lg-4 order-1 order-lg-2 hero-img" data-aos="zoom-out" data-aos-delay="300">
-            <img src="https://envs.sh/A49.jpg" class="img-fluid animated" alt="">
-          </div>
+        </section>
+        
+        <!-- Contact Section -->
+        <section class="bg-white rounded-xl shadow-lg p-6 mb-12">
+            <h2 class="text-3xl font-bold mb-6 text-indigo-800 flex items-center">
+                <i class="fas fa-headset mr-3 text-blue-500"></i> Need Help?
+            </h2>
+            <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div>
+                    <h3 class="text-xl font-bold mb-3">Contact Us</h3>
+                    <p class="mb-4">Hubungi kami via WhatsApp untuk pertanyaan atau bantuan pemesanan:</p>
+                    <a href="https://wa.me/6283170618607" class="whatsapp-btn inline-block px-6 py-3 rounded-full font-medium text-lg">
+                        <i class="fab fa-whatsapp mr-2"></i> Chat via WhatsApp
+                    </a>
+                </div>
+                <div>
+                    <h3 class="text-xl font-bold mb-3">Store Information</h3>
+                    <ul class="space-y-2">
+                        <li class="flex items-center">
+                            <i class="fas fa-store mr-3 text-indigo-500"></i>
+                            <span>Kiryzz Official Merchandise</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-map-marker-alt mr-3 text-red-500"></i>
+                            <span>Medan, Indonesia</span>
+                        </li>
+                        <li class="flex items-center">
+                            <i class="fas fa-clock mr-3 text-yellow-500"></i>
+                            <span>Buka setiap hari 07:23 - 22:54 WIB</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </main>
+    
+    <!-- Footer -->
+    <footer class="bg-indigo-900 text-white py-8">
+        <div class="container mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <div class="flex items-center space-x-2">
+                        <i class="fas fa-dragon text-2xl text-yellow-300"></i>
+                        <h2 class="text-xl font-bold">Kiryzz Store</h2>
+                    </div>
+                    <p class="mt-2 
+            <div class="border-t border-indigo-700 mt-6 pt-6 text-center text-indigo-300">
+                <p>&copy; 2025 Kiryzz Store. All rights reserved.</p>
+            </div>
         </div>
-      </div>
-      <svg class="hero-waves" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" viewBox="0 24 150 28 " preserveAspectRatio="none">
-        <defs>
-          <path id="wave-path" d="M-160 44c30 0 58-18 88-18s 58 18 88 18 58-18 88-18 58 18 88 18 v44h-352z"></path>
-        </defs>
-        <g class="wave1">
-          <use xlink:href="#wave-path" x="50" y="3" fill="rgba(255,255,255, .1)"></use>
-        </g>
-        <g class="wave2">
-          <use xlink:href="#wave-path" x="50" y="0" fill="rgba(255,255,255, .2)"></use>
-        </g>
-        <g class="wave3">
-          <use xlink:href="#wave-path" x="50" y="9" fill="#fff"></use>
-        </g>
-      </svg>
-    </section>
-    <section id="pricing" class="pricing">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <center><p>Produk yang tersedia</p></center>
-        </div>
-        <div class="row" data-aos="fade-left">
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="100">
-              <h3>JASA BUAT SC SIMPLE</h3>
-              <h4><sup>Rp</sup>20.000,-<span></span></h4>
-              <ul>
-                <li>REQ FITURE</li>
-                <li>GA NERIMA FITUR RPG</li>
-                <li>GA NERIMA FITUR BUG</li>
-                <li>HARGA 15k - 50K</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=Bg+Mau+Jasa+Buat+Sc+Simple+Nominal+:+10k-20k" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="100">
-              <h3>JASA INSTAL THEMA</h3>
-              <h4><sup>Rp</sup>10.000,-<span></span></h4>
-              <ul>
-                <li>BEBAS PILIH THEMA</li>
-                <li>THEMA 1 = STELLAR</li>
-                <li>THEMA 2 = BILLING</li>
-                <li>THEMA 3 = ENIGMA</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT+PESANAN+:*+_BANG+MAU+BUY+JASA+INSTAL+THEMA_" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="100">
-              <h3>RENAME SC</h3>
-              <h4><sup>Rp</sup>15.000,-<span></span></h4>
-              <ul>
-                <li>RENAME BERSIH</li>
-                <li>RENAME NO EROR</li>
-                <li>REQ NAMA NEW</li>
-                <li>REQ CASE NEW</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT+PESANAN*+_BANG+MAU+JASA+RENAME+5K+-+10K_" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="200">
-              <h3>JASA ADD/FIX FITUR</h3>
-              <h4><sup>Rp</sup>10.000,-<span></span></h4>
-              <ul>
-                <li>REQ CASE</li>
-                <li>ADD NEW FITURE</li>
-                <li>ANTI EROR</li>
-                <li>TYPE CASE ONLY</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT+PESANAN+:+BANG+MINAT+JASA+ADD&FIX+FITURE*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="300">
-              <h3>RECODE SC</h3>
-              <h4><sup>Rp</sup>25.000,-<span></span></h4>
-              <ul>
-                <li>RECODE FULL</li>
-                <li>SPEK SC SENDIRI</li>
-                <li>SC BISA LU JUAL</li>
-                <li>AUTO BALMOD</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT+20PESANAN+:+BANG+MINAT+JASA+RECODE+SC*+_NOMINAL+25.000_" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="300">
-              <h3>JASA INSTAL PANEL</h3>
-              <h4><sup>Rp</sup>5.000,-<span></span></h4>
-              <ul>
-                <li>PROSES SANGAT CEPAT</li>
-                <li>DATA VPS ANTI KE HB</li>
-                <li>BISA REQ DOMAINNYA</li>
-                <li>FREE EGG BOT WHATSAPP</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*BANG+MAU+BUY+JASA+INSTAL+PANEL+NOMINAL+5.000*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <center><p>PANEL PTERODACTYL PRIVATE</p></center>
-        <div class="row" data-aos="fade-left">
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="100">
-              <h3>PTERODACTYL 1GB</h3>
-              <h4><sup>Rp</sup>1.000,-<span></span></h4>
-              <ul>
-                <li>1GB RAM</li>
-                <li>30% CPU</li>
-                <li>1GB DISK</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%201GB%0A*CPU%3A*%2040%25%0A*DISK%3A*%201GB%0A*ID%20PESANAN%3A*%20001%0A*NOMINAL%3A*%20Rp1.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="200">
-              <h3>PTERODACTYL 2GB</h3>
-              <h4><sup>Rp</sup>2.000,-<span></span></h4>
-              <ul>
-                <li>2GB RAM</li>
-                <li>60% CPU</li>
-                <li>2GB DISK</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%202GB%0A*CPU%3A*%2080%25%0A*DISK%3A*%202GB%0A*ID%20PESANAN%3A*%20002%0A*NOMINAL%3A*%20Rp2.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="300">
-              <h3>PTERODACTYL 3Gb</h3>
-              <h4><sup>Rp</sup>3.000,-<span></span></h4>
-              <ul>
-                <li>3GB RAM</li>
-                <li>80% CPU</li>
-                <li>3GB DISK</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%203GB%0A*CPU%3A*%20120%25%0A*DISK%3A*%203GB%0A*ID%20PESANAN%3A*%20003%0A*NOMINAL%3A*%20Rp3.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-              <h3>PTERODACTYL 4Gb</h3>
-              <h4><sup>Rp</sup>4.000,-<span></span></h4>
-              <ul>
-                <li>4GB RAM</li>
-                <li>110% CPU</li>
-                <li>4GB DISK</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%204GB%0A*CPU%3A*%20160%25%0A*DISK%3A*%204GB%0A*ID%20PESANAN%3A*%20004%0A*NOMINAL%3A*%20Rp4.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-              <h3>PTERODACTYL 5Gb</h3>
-              <h4><sup>Rp</sup>5.000,-<span></span></h4>
-              <ul>
-                <li>5GB RAM</li>
-                <li>140% CPU</li>
-                <li>5GB DISK</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%205GB%0A*CPU%3A*%20200%25%0A*DISK%3A*%205GB%0A*ID%20PESANAN%3A*%20005%0A*NOMINAL%3A*%20Rp5.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-              <h3>PTERODACTYL 6Gb</h3>
-              <h4><sup>Rp</sup>6.000,-<span></span></h4>
-              <ul>
-                <li>6GB RAM</li>
-                <li>170% CPU</li>
-                <li>6GB DISK</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%206GB%0A*CPU%3A*%20200%25%0A*DISK%3A*%206GB%0A*ID%20PESANAN%3A*%20005%0A*NOMINAL%3A*%20Rp6.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-              <h3>PTERODACTYL 7Gb</h3>
-              <h4><sup>Rp</sup>7.000,-<span></span></h4>
-              <ul>
-                <li>7GB RAM</li>
-                <li>180% CPU</li>
-                <li>7GB DISK</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%207GB%0A*CPU%3A*%20200%25%0A*DISK%3A*%207GB%0A*ID%20PESANAN%3A*%20005%0A*NOMINAL%3A*%20Rp7.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-              <h3>PTERODACTYL 8Gb</h3>
-              <h4><sup>Rp</sup>8.000,-<span></span></h4>
-              <ul>
-                <li>8GB RAM</li>
-                <li>190% CPU</li>
-                <li>8GB DISK</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%208GB%0A*CPU%3A*%20200%25%0A*DISK%3A*%208GB%0A*ID%20PESANAN%3A*%20005%0A*NOMINAL%3A*%20Rp8.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-              <h3>PTERODACTYL 9gb</h3>
-              <h4><sup>Rp</sup>9.000,-<span></span></h4>
-              <ul>
-                <li>9GB RAM</li>
-                <li>200% CPU</li>
-                <li>9GB DISK</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%209GB%0A*CPU%3A*%20200%25%0A*DISK%3A*%209GB%0A*ID%20PESANAN%3A*%20005%0A*NOMINAL%3A*%20Rp9.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="600">
-            <span class="advanced">Recommend</span>
-              <h3>PTERODACTYL 10gb</h3>
-              <h4><sup>Rp</sup>10.000,-<span></span></h4>
-              <ul>
-                <li>10GB RAM</li>
-                <li>250% CPU</li>
-                <li>10GB DISK</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%209GB%0A*CPU%3A*%20200%25%0A*DISK%3A*%209GB%0A*ID%20PESANAN%3A*%20005%0A*NOMINAL%3A*%20Rp9.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-            <span class="advanced">Recommend</span>
-              <h3>PTERODACTYL UNLIMITED</h3>
-              <h4><sup>Rp</sup>12.000,-<span></span></h4>
-              <ul>
-                <li>UNLIMITED RAM</li>
-                <li>UNLIMITED CPU</li>
-                <li>UNLIMITED DISK</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*FORMAT%20PESANAN*%0A%0A*PRODUK%3A*%20PANEL%0A*EMAIL%3A*%20isi%0A*USERNAME%3A*%20isi%0A*RAM%3A*%20UNLIMITED%0A*CPU%3A*%20UNLIMITED%0A*DISK%3A*%20UNLIMITED%0A*ID%20PESANAN%3A*%20006%0A*NOMINAL%3A*%20Rp10.000%0A%0A*Pastikan%20username%20di%20isi%20!!*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-              <span class="advanced">Recommend</span>
-              <h3>RESELLER PANEL</h3>
-              <h4><sup>Rp</sup>10.000,-<span></span></h4>
-              <ul>
-                <li>RESELLER PANEL</li>
-                <li>BISA OPEN JUAL PANEL</li>
-                <li>PATUNGAN 5K TIAP MOKAD</li>
-                <li>UDAH FREE SC</li>
-                <li>AUTO BALIK MODAL</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*BANG+MAU+JOIN+RESELLER+PANEL+10.000*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-              <span class="advanced">Recommend</span>
-              <h3>ADMIN PANEL</h3>
-              <h4><sup>Rp</sup>15.000,-<span></span></h4>
-              <ul>
-                <li>ADMIN PANEL</li>
-                <li>BISA OPEN RESELLER PANEL</li>
-                <li>BISA JUAL PANEL</li>
-                <li>AUTO BALIK MODAL</li>
-                <li>20k PERBULAN</li>
-                <li>GARANSI 10 HARI</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*BANG+MAU+BUY+ADMIN+PANEL+1BULAN+15.000*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-              <span class="advanced">Recommend</span>
-              <h3>PT PANEL</h3>
-              <h4><sup>Rp</sup>20.000,-<span></span></h4>
-              <ul>
-                <li>PT PANEL</li>
-                <li>PERMANEN</li>
-                <li>BISA OPEN ADMIN PANEL</li>
-                <li>BISA OPEN RESELLER PANEL</li>
-                <li>BISA JUAL PANEL</li>
-                <li>FREE ADMIN DI 2 GRUP</li>
-                <li>PATUNGAN 5K TIAP MOKAD</li>
-                <li>AUTO BALIK MODAL</li>
-                <li>DLL</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*BANG+MAU+JOIN+PT+PANEL+20.000*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-              <span class="advanced">Recommend</span>
-              <h3>OWNER PANEL</h3>
-              <h4><sup>Rp</sup>30.000,-<span></span></h4>
-              <ul>
-                <li>OWNER PANEL</li>
-                <li>PERMANEN</li>
-                <li>BISA OPEN PT PANEL</li>
-                <li>BISA OPEN ADMIN PANEL</li>
-                <li>BISA OPEN RESELLER PANEL</li>
-                <li>BISA JUAL PANEL</li>
-                <li>FREE ADMIN DI 2 GRUP</li>
-                <li>GRUP BEBAS PROMOSI</li>
-                <li>PATUNGAN 5K TIAP MOKAD</li>
-                <li>AUTO BALIK MODAL</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*BANG+MAU+JOIN+OWNER+PANEL+30.000*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-        <center><p>JOIN ALL MURID</p></center>
-        </div>
-        <div class="row" data-aos="fade-left">
-          <div class="col-lg-3 col-md-6">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="100">
-                         <h3>MURID SUNTIK</h3>
-              <h4><sup>Rp</sup>10.000,-<span></span></h4>
-              <ul>
-                <li>BISA JADI KANG SUNTIK</li>
-                <li>BISA OPEN JASA SUNTIK</li>
-                <li>BISA SUNTIK AKUN SENDRI</li>
-                <li>BISA OPEN GRUP LAGI</li>
-                <li>WEB AMAN 100% DAN CEPAT</li>
-                <li>DI JAMIN BALMOD KALO NIAT</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*BANG+MAU+JOIN+MURID+SUNTIK+HARGA+10.000*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-            <h3>MURID UNBEND</h3>
-              <h4><sup>Rp</sup>10.000,-<span></span></h4>
-              <ul>
-                <li>BISA JADI KANG UNBEND</li>
-                <li>BISA OPEN JASA UNBEND</li>
-                <li>BISA UNBEND AKUN SENDRI</li>
-                <li>BISA OPEN MURID LAGI</li>
-                <li>MENDAPATKAN TEXS GACOR</li>
-                <li>DI JAMIN BALMOD KALO NIAT</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*BANG+MAU+JOIN+MURID+UNBEND+HARGA+10.000*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-            <h3>MURID LOGO</h3>
-              <h4><sup>Rp</sup>5.000,-<span></span></h4>
-              <ul>
-                <li>BISA JADI KANG LOGO</li>
-                <li>BISA OPEN LOGO</li>
-                <li>MENDAPATKAN BAHAN</li>
-                <li>MENDAPATKAN TUTOR</li>
-                <li>BISA BIKIN LOGO SENDIRI</li>
-                <li>DI JAMIN BALMOD KALO NIAT</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*BANG+MAU+JOIN+MURID+LOGO+HARGA+5.000*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-            <h3>MURID PLP</h3>
-              <h4><sup>Rp</sup>10.000,-<span></span></h4>
-              <ul>
-                <li>MENDAPATKAN PLP</li>
-                <li>MENDAPATKAN APK BUAT LOGO</li>
-                <li>BANYAK PILIHAN PLP</li>
-                <li>PLP UPDATE KALO ADA NEW</li>
-                <li>PLP NYA BISA DI JUAL LAGI</li>
-                <li>DI JAMIN BALMOD KALO NIAT</li>
-              </ul>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=*BANG+MAU+JOIN+MURID+PLP+HARGA+10.000*" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="500">
-        <center><p>LIST SC BOT</p></center>
-        </div>
-        <div class="row" data-aos="fade-left">
-          <div class="col-lg-3 col-md-6">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="100">
-              <h3>Sc Push-simpel-v1 no enc</h3>
-              <h4><sup>Rp</sup>20.000,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=BANG+BUY+SC+PUSH-SIMPEL+V1+[NO+ENC]+20.000" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="200">
-              <h3>Sc Push-simpel-v2 NO ENC</h3>
-              <h4><sup>Rp</sup>25.000,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=BUY+SC+PUSH-SIMPEL+V2+[NO+ENC]+30
-              25.000" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-              <h3>Sc PUSH-SIMPEL-v3 NO ENC</h3>
-              <h4><sup>Rp</sup>30.000,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=BUY+SC+PUSH-SIMPEL+V3+[NO+ENC]+30.000" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-              <h3>Sc STORE X GRUP NK ENC</h3>
-              <h4><sup>Rp</sup>10.000,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=BANG+BUY+SC+*STORE+X+GRUP*+[ENC+ENC]+10.000" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="contact" class="contact">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <h2>Contact</h2>
-          <p>Contact Us</p>
-        </div>
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
-           <h3>DAN LAIN LAIN INFO LENGKAP KLIK 👇</h3>
-              <h4><sup>KLIK</sup>INI,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224?text=BANG+MAU+LIAT+*PRODUK+LAIN" class="btn-buy">BELI</a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-    <section id="contact" class="contact">
-      <div class="container">
-        <div class="section-title" data-aos="fade-up">
-          <h2>Contact</h2>
-          <p>Contact Us</p>
-        </div>
-        <div class="row">
-          <div class="col-lg-4" data-aos="fade-right" data-aos-delay="100">
-        <center><p>CONTACT & SOSMED ADMIN</p></center>
-        </div>
-        <div class="row" data-aos="fade-left">
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="100">
-             <h3>NOMOR ORDERAN</h3>
-              <h4><sup>JANGAN</sup>LUPA ORDER,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224" class="btn-buy">CHAT</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-            <h3>NOMOR JASPOT</h3>
-              <h4><sup>JASPOT</sup>FREE BOS,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://wa.me/62895402567224" class="btn-buy">CHAT</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-            <h3>LINK GRUP 1</h3>
-              <h4><sup>SINI</sup>JOIN BANG,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://chat.whatsapp.com/FnHTqCCWrQTGA1IYW5RKa9" class="btn-buy">JOIN GRUP</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-            <h3>LINK GRUP 2</h3>
-              <h4><sup>SINI</sup>JOIN BANG,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://chat.whatsapp.com/FnHTqCCWrQTGA1IYW5RKa9" class="btn-buy">JOIN GRUP</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-            <h3>LINK GRUP 3</h3>
-              <h4><sup>SINI</sup>JOIN BANG,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://chat.whatsapp.com/FnHTqCCWrQTGA1IYW5RKa9" class="btn-buy">JOIN GRUP</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-             <h3>LINK GRUP 4</h3>
-              <h4><sup>SINI</sup>JOIN BANG,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://chat.whatsapp.com/FnHTqCCWrQTGA1IYW5RKa9" class="btn-buy">JOIN GRUP</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-            <h3>LINK GRUP BOT</h3>
-              <h4><sup>SINI</sup>JOIN BANG :v<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://chat.whatsapp.com/FnHTqCCWrQTGA1IYW5RKa9" class="btn-buy">JOIN GRUP</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-             <h3>★ SALURAN ★</h3>
-              <h4><sup>SINI</sup>JOIN BANG :v<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://whatsapp.com/channel/0029VabgrEJ9Gv7VsxJOdl18" class="btn-buy">JOIN SALURAN</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-            <h3>YOUTUBE</h3>
-              <h4><sup>JANGAN</sup>LUPA SUBSCRIBE,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://youtube.com/@wanzofc" class="btn-buy">SUBSCRIBE</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-            <h3>TIKTOK</h3>
-              <h4><sup>JANGAN</sup>LUPA FOLLOW,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://vm.tiktok.com/@wanzofc2" class="btn-buy">FOLLOW</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-            <h3>INSTAGRAM</h3>
-              <h4><sup>JANGAN</sup>LUPA FOLLOW,-<span></span></h4>
-              <div class="btn-wrap">
-                <a href="https://www.instagram.com/@wanz_brayy" class="btn-buy">FOLLOW</a>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mt-4 mt-md-0">
-            <div class="box featured" data-aos="zoom-in" data-aos-delay="400">
-            <div class="info">
-              <div class="address">
-                <i class="fa-solid fa-location-dot"></i>
-                <h4>Location:</h4>
-                <p>Jakarta Selatan, Indonesian</p>
-              </div>
-              <div class="email">
-                <i class="fa-solid fa-envelope"></i>
-                <h4>Email:</h4>
-                <p>wanzbrayy010308@gmail.com</p>
-              </div>
-              <div class="phone">
-                <i class="fa-solid fa-phone"></i>
-                <h4>Call:</h4>
-                <p>0895402567224</p>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-  </main>
-  <footer id="footer">
-    <div class="footer-top">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-4 col-md-6">
-            <div class="footer-info">
-              <h3>Wanz-Shop</h3>
-              <p class="pb-3"><em></em></p>
-              <p>Jakarta Selatan,<br>Indonesian<br><br><strong>Phone:</strong> 0895402567224<br><strong>Email:</strong> wanzbrayy010308@gmail.com<br></p>
-            </div>
-          </div>
-          <div class="col-lg-4 col-md-6 footer-newsletter">
-            <h4>TERIMA KASIH</h4>
-            <p>SENANG MELAYANI ANDA JANGAN LUPA MAMPIR LAGI YA KAK</p>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="container">
-      <div class="copyright">&copy; Copyright <strong><span>Wanz-Shop </span></strong>. All Rights Reserved</div>
-      <div class="credits">Designed by <a href="https://youtube.com/@wanzofc">WANZOFC</a></div>
-    </div>
-  </footer>
-  <a href="#" class="back-to-top d-flex align-items-center justify-content-center"><i class="fa-solid fa-arrow-up"></i></a>
-  <div id="preloader"></div>
-  <script data-cfasync="false" src="https://api.zeeoneofc.my.id/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
-  <script src="https://api.zeeoneofc.my.id/purecounter/purecounter_vanilla.js"></script>
-  <script src="https://api.zeeoneofc.my.id/aos/aos.js"></script>
-  <script src="https://api.zeeoneofc.my.id/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="https://api.zeeoneofc.my.id/glightbox/js/glightbox.min.js"></script>
-  <script src="https://api.zeeoneofc.my.id/swiper/swiper-bundle.min.js"></script>
-  <script src="https://api.zeeoneofc.my.id/js/main.min.js"></script>
-  <script src="https://api.zeeoneofc.my.id/js/dashboard.js"></script>
-  <script src="https://kit.fontawesome.com/32db8fe470.js" crossorigin="anonymous"></script>
-  </body>
-</html>
+    </footer>
+    
+    <script>
+        // Loading Animation
+        window.addEventListener('load', function() {
+            setTimeout(function() {
+                document.getElementById('loadingScreen').style.opacity = '0';
+                setTimeout(function() {
+                    document.getElementById('loadingScreen').style.display = 'none';
+                }, 500);
+            }, 1500);
+        });
+        
+        // Snow Effect
+        function createSnow() {
+            const snow = document.getElementById('snow');
+            const snowflakes = 50;
+            
+            for (let i = 0; i < snowflakes; i++) {
+                const snowflake = document.createElement('div');
+                snowflake.innerHTML = '❄';
+                snowflake.style.position = 'absolute';
+                snowflake.style.color = 'rgba(255, 255, 255, 0.8)';
+                snowflake.style.fontSize = Math.random() * 10 + 10 + 'px';
+                snowflake.style.top = '-20px';
+                snowflake.style.left = Math.random() * window.innerWidth + 'px';
+                snowflake.style.animation = `fall ${Math.random() * 5 + 5}s linear infinite`;
+                snowflake.style.animationDelay = Math.random() * 5 + 's';
+                snowflake.style.opacity = Math.random();
+                snowflake.style.zIndex = '100';
+                snowflake.style.pointerEvents = 'none';
+                snowflake.style.userSelect = 'none';
+                
+                // Add animation keyframes dynamically
+                const style = document.createElement('style');
+                style.innerHTML = `
+                    @keyframes fall {
+                        to {
+                            transform: translateY(${window.innerHeight}px) rotate(360deg);
+                        }
+                    }
+                `;
+                document.head.appendChild(style);
+                
+                snow.appendChild(snowflake);
+            }
+        }
+        
+        // Initialize snow effect
+        createSnow();
+        
+        // Order Product Function
+        function orderProduct(productName, price) {
+            const whatsappNumber = '6283170618607';
+            const message = `Halo Kiryzz, saya ingin memesan:\n\n*Produk:* ${productName}\n*Harga:* Rp ${price.toLocaleString('id-ID')}\n\nApakah produk ini tersedia?`;
+            const encodedMessage = encodeURIComponent(message);
+            window.open(`https://wa.me/${whatsappNumber}?text=${encodedMessage}`, '_blank');
+        }
+        
+        // Copy to Clipboard Function
+        function copyToClipboard(text) {
+            navigator.clipboard.writeText(text).then(function() {
+                alert('Teks berhasil disalin: ' + text);
+            }, function() {
+                alert('Gagal menyalin teks');
+            });
+        }
+    </script>
+</body>
+                 </html>
